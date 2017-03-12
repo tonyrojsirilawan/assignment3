@@ -24,4 +24,7 @@ public class LinkedList {
        }
        
     }
+    public boolean remove(Nodes node){
+    	return false;
+    }
 }
