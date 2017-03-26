@@ -3,7 +3,42 @@ package assignment3;
 public class LinkedList {
 	
 	private Nodes root = null;
+	int size;
 	
+	void addNode(String newData){
+		Nodes newNode = new Nodes(size, null);
+		Nodes currentNode, tempNode;
+		if(root == null){
+			root = newNode;
+		}else if (newData.compareTo(root.toString())<=0){
+			newNode.setNext(root);
+			root.setPrev(newNode);
+			root = newNode;
+		}else{
+			tempNode = root;
+			currentNode = root.getNext();
+			boolean isInserted = false;
+			while(currentNode != null){
+				if((newData.compareTo(tempNode.toString())>=0) && (newData.compareTo(currentNode.toString())<=0)){
+					tempNode.setNext(newNode);
+					newNode.setNext(currentNode);
+					newNode.setPrev(tempNode);
+					currentNode.setPrev(newNode);
+					isInserted = true;
+					break;
+				}
+				else{
+					tempNode = currentNode;
+					currentNode = currentNode.getNext();
+				}
+			}
+			if (!isInserted){
+				tempNode.setNext(newNode);
+				newNode.setPrev(tempNode);
+			}
+			size++;
+		}
+	}
 	public boolean findNode(Nodes node){
         if(node==null) return false;
         Nodes currentNode = root;
