@@ -31,10 +31,24 @@ public class LinkedList {
     	   temp = temp.getPrev();
        }
     }
-    public boolean remove(Nodes node){
+    public void remove(Nodes node){
     	if (root == null){
-    		new RuntimeException("the list is empty");
+    		new RuntimeException("The list is empty");
+    	}else{
+    		Nodes temp = root;
+    		while(temp!= null){
+    			temp = temp.getNext();
+    		}
     	}
-    	return false;
+    }
+    public void destroy(Nodes node){
+    	if (root == null){
+    		new RuntimeException("There's nothing to destroy");
+    	}else{ 
+    		Nodes root = null;
+    		while (root == null){
+    			System.out.println("List destroyed");
+    		}
+    	}
     }
 }
