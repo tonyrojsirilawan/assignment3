@@ -15,16 +15,26 @@ public class LinkedList {
         }
         return true;
     }
-    public void iterate(){
+    public void iterateForwards(){
     	System.out.println("Iterate forward...");
        Nodes temp = root;
        while(temp!=null){
     	   System.out.println(temp.toString());
     	   temp = temp.getNext();
        }
-       
+    }
+    public void iterateBackwards(){
+    	System.out.println("Iterate backward...");
+       Nodes temp = root;
+       while(temp!=null){
+    	   System.out.println(temp.toString());
+    	   temp = temp.getPrev();
+       }
     }
     public boolean remove(Nodes node){
+    	if (root == null){
+    		new RuntimeException("the list is empty");
+    	}
     	return false;
     }
 }

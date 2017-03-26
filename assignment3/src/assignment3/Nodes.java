@@ -5,6 +5,7 @@ public class Nodes {
 	private int id = 0;
 	private String name = "";
 	private Nodes next;
+	private Nodes prev;
 	
 	public Nodes(int id, String name) {
 		this.id = id;
@@ -39,5 +40,12 @@ public class Nodes {
 	public void setNext(Nodes node) {
 		this.next = node;
 	}
-
+	
+	public Nodes getPrev() {
+		return prev;
+	}
+	
+	public void setPrev(Nodes node){
+		this.prev = node;
+	}
 }
