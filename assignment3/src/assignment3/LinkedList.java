@@ -2,15 +2,17 @@ package assignment3;
 
 public class LinkedList {
 	
-	private Nodes root = null;
-	int size;
+	private int size = 1;
+		private Nodes root = null;
 	
-	void addNode(String newData){
-		Nodes newNode = new Nodes(size, null);
+
+	public void addNode(Nodes node){
+		int newId = 0;
+		Nodes newNode = new Nodes(newId , null);
 		Nodes currentNode, tempNode;
 		if(root == null){
 			root = newNode;
-		}else if (newData.compareTo(root.toString())<=0){
+		}else if (node.compareTo(root.toString())<=0){
 			newNode.setNext(root);
 			root.setPrev(newNode);
 			root = newNode;
@@ -19,7 +21,7 @@ public class LinkedList {
 			currentNode = root.getNext();
 			boolean isInserted = false;
 			while(currentNode != null){
-				if((newData.compareTo(tempNode.toString())>=0) && (newData.compareTo(currentNode.toString())<=0)){
+				if((node.compareTo(tempNode.toString())>=0) && (node.compareTo(currentNode.toString())<=0)){
 					tempNode.setNext(newNode);
 					newNode.setNext(currentNode);
 					newNode.setPrev(tempNode);
@@ -53,7 +55,7 @@ public class LinkedList {
     public void iterateForwards(){
     	System.out.println("Iterate forward...");
        Nodes temp = root;
-       while(temp!=null){
+       while(temp != null){
     	   System.out.println(temp.toString());
     	   temp = temp.getNext();
        }
@@ -75,6 +77,7 @@ public class LinkedList {
     			temp = temp.getNext();
     		}
     	}
+    	size--;
     }
     public void destroy(Nodes node){
     	if (root == null){
@@ -85,5 +88,8 @@ public class LinkedList {
     			System.out.println("List destroyed");
     		}
     	}
+    }
+    public int size() {
+        return size;
     }
 }

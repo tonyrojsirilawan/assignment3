@@ -48,4 +48,8 @@ public class Nodes {
 	public void setPrev(Nodes node){
 		this.prev = node;
 	}
+
+	public int compareTo(String string) {
+		return 1;
+	}
 }
